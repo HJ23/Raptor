@@ -36,7 +36,7 @@ python3 main.py --domain example.com --output example.txt --verbose
 ```
 Raptor uses 4 commercial products for its enumeration. But all these services also provides free limited amount of request package with monthly automatic renewal.
 ```
-check out our guide below :
+Check out our guide here :
 [ How to get API keys for Raptor ? ](https://github.com/HJ23/Raptor/wiki)
 
 ```
