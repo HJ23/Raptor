@@ -38,3 +38,6 @@ python3 main.py --domain example.com --output example.txt --verbose
 - [ Add more sources ]
 - [ Docker ]
 
+----
+#### Logo credits : https://www.freepik.com/iyasalif
+
