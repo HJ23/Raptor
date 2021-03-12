@@ -32,12 +32,17 @@ python3 main.py --domain example.com --output example.txt
 python3 main.py --domain example.com --output example.txt --verbose
 ```
 
+#### API keys for commercial products
+```
+Raptor uses 4 commercial products for its enumeration. But all these services also provides free limited amount of request package with monthly automatic renewal.
 
+for Bing it is 1000 request for month.
+for BinaryEdge it is 250 request for month. 
+etc.
+```
 
 ## ToDo
 - [ Add more sources ]
 - [ Docker ]
-
-----
-#### Logo credits : https://www.freepik.com/iyasalif
+- [ Add detailed API key guide for paid services ]
 
