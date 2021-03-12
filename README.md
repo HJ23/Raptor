@@ -46,3 +46,6 @@ etc.
 - [ Docker ]
 - [ Add detailed API key guide for paid services ]
 
+
+----
+#### Logo Credits : https://www.freepik.com/iyasalif
