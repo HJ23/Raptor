@@ -48,7 +48,6 @@ etc.
 ## ToDo
 - [ Add more sources ]
 - [ Docker ]
-- [ Add detailed API key guide for paid services ]
 
 
 ----
