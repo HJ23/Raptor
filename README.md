@@ -23,7 +23,7 @@ python3 main.py --domain example.com
 ```sh
 python3 main.py --domain example.com --output example.txt  
 ```
-
+#### For Outputs check outputs directory.
 
 
 #### Verbose for detailed outputs
@@ -33,7 +33,9 @@ python3 main.py --domain example.com --output example.txt --verbose
 ```
 
 #### API keys for commercial products
+
 ```
+For better results i highly encourage you to get API keys.
 Raptor uses 4 commercial products for its enumeration. But all these services also provides free limited amount of request package with monthly automatic renewal.
 ```
 Check out our guide here :
