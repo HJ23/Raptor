@@ -40,7 +40,7 @@ Raptor uses 3 commercial products for its enumeration.
 - BinaryEdge
 - VirusTotal
 
-But all these services also provide free limited amount of request package with automatic renewal basis.
+But all these services also provide free limited request package with automatic renewal basis.
 
 for Bing it is 1000 request per month.
 for BinaryEdge it is 250 request per month. 
