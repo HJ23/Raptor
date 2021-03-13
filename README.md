@@ -4,21 +4,19 @@
 
 ---
 
-
 # Usage
-#### To install requirements execute command below
-
+#### To install requirements execute the command below
 
 ```sh
 pip3 install -r requirements.txt  
 ```
 
-#### Find subdomains of 'example.com' : 
+#### Find subdomains of 'example.com' . 
 ```sh
 python3 main.py --domain example.com  
 ```
 
-#### Specify output or it will save as default filename and extension
+#### Specify filename and extension  or it will use default one.
 
 ```sh
 python3 main.py --domain example.com --output example.txt  
@@ -26,7 +24,7 @@ python3 main.py --domain example.com --output example.txt
 #### For Outputs check outputs directory.
 
 
-#### Verbose for detailed outputs
+#### Verbose mode for details.
 
 ```sh
 python3 main.py --domain example.com --output example.txt --verbose
@@ -36,21 +34,31 @@ python3 main.py --domain example.com --output example.txt --verbose
 
 ```
 For better results i highly encourage you to get API keys.
-Raptor uses 4 commercial products for its enumeration. But all these services also provides free limited amount of request package with monthly automatic renewal.
+Raptor uses 3 commercial products for its enumeration.
+
+- Bing
+- BinaryEdge
+- VirusTotal
+
+But all these services also provide free limited amount of request package with automatic renewal basis.
+
+for Bing it is 1000 request per month.
+for BinaryEdge it is 250 request per month. 
+for VirusTotal it is 500 request per day.
+
+
 ```
+#### Having trouble with API keys ?
 Check out our guide here :
 [ How to get API keys for Raptor ? ](https://github.com/HJ23/Raptor/wiki)
 
-```
-for Bing it is 1000 request for month.
-for BinaryEdge it is 250 request for month. 
-etc.
-```
 
-## ToDo
-- [ Add more sources ]
-- [ Docker ]
 
+## Todo
+- [ Add more sources ]()
+- [ Add bruteforcer ]()
+- [ Improve verbose mode ]()
+- [  ]()
 
 ----
 #### Logo Credits : https://www.freepik.com/iyasalif
