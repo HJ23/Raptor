@@ -12,6 +12,7 @@ from src.ThreatMiner import ThreatMiner
 from src.CertSpotter import CertSpotter 
 from src.Bing import Bing
 from src.AlienVault import AlienVault
+from src.Google import Google
 import os
 from src.Base import BaseClass
 from concurrent.futures import ThreadPoolExecutor
@@ -21,7 +22,7 @@ class Raptor:
     def __init__(self,output,threads=4,verbose=False):
         self.modules=[FacebookCert(),RapiDNS(),BufferOverDNS(),HackerTarget(),NetCraft(),
                       DNSDumpster(),VirusTotal(),BinaryEdge(),ThreatCrowd(),ThreatMiner(),
-                      Sublist3r(),CertSpotter(),Bing(),AlienVault()]
+                      Sublist3r(),CertSpotter(),Bing(),AlienVault(),Google()]
         
         self.output=output
         self.threads=threads
