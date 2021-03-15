@@ -19,9 +19,13 @@ class BaseClass:
     def clean(results,domain)->list:
         final=set()
         for url in results:
-            for useless in ["https://","http://",":","\\","/","www.","*"]:
+            for useless in ["https://","http://",":","\\","www.","*","https:\\\\","http:\\\\"]:
                 url=url.replace(useless,"")
-            if(url.endswith("."+domain)):
-                final.add(url)
+            
+            splitted=url.split("/")
+            if( splitted[0].endswith("."+domain) ):
+                final.add(splitted[0])
+            
+
         return list(final)
 
