@@ -29,13 +29,13 @@ python3 main.py --domain example.com --output example.txt
 ```sh
 python3 main.py --domain example.com --output example.txt --verbose
 ```
-#### This software currently uses 15 free and commercial services.
 
 #### API keys for commercial services.
 
 ```
-For better results i highly encourage you to get API keys.
-Raptor uses 3 commercial products for its enumeration.
+For better results I highly encourage you to get API keys.
+This software currently uses 15 free and commercial services.
+These are the commercial services it uses:
 
 - Bing
 - BinaryEdge
