@@ -29,8 +29,9 @@ python3 main.py --domain example.com --output example.txt
 ```sh
 python3 main.py --domain example.com --output example.txt --verbose
 ```
+#### This software currently uses 15 free and commercial services.
 
-#### API keys for commercial products
+#### API keys for commercial services.
 
 ```
 For better results i highly encourage you to get API keys.
