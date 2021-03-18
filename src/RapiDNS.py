@@ -1,5 +1,5 @@
-from .Base import BaseClass
-from utils.Utility import logger
+from src.Base import BaseClass
+from utils.Utility import logger,Log
 import re
 
 
@@ -20,8 +20,6 @@ class RapiDNS(BaseClass):
                 urls=self.REGEX_URL.findall(out.text)
                 results=urls
         except Exception as e:
-            print(e)
+            Log.info(e)
         
         return BaseClass.clean(results, domain)
-
-

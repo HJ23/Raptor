@@ -19,7 +19,7 @@ class Google(BaseClass):
         return results
     
     @logger("Google")
-    def start(self,domain,limit=4):
+    def start(self,domain,limit=5):
         results=[]
         for page_num in range(limit):
             tmp_url=self.URL.format(item=domain,offset=page_num*100)

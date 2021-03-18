@@ -1,5 +1,5 @@
 from src.Base import BaseClass
-from utils.Utility import logger
+from utils.Utility import logger,Log
 
 
 class HackerTarget(BaseClass):
@@ -21,5 +21,5 @@ class HackerTarget(BaseClass):
                         results.append(result.split(",")[0])
 
         except Exception as e:
-            print(e)
+            Log.info(e)
         return BaseClass.clean(results,domain)

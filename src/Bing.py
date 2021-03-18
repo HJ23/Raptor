@@ -1,5 +1,5 @@
 from .Base import BaseClass
-from utils.Utility import logger
+from utils.Utility import logger,Log
 import time
 
 class Bing(BaseClass):
@@ -29,6 +29,6 @@ class Bing(BaseClass):
                     limits=len(results)
                     time.sleep(2)
         except Exception as e:
-            print(e)
+            Log.info(e)
             
         return BaseClass.clean(results,domain)

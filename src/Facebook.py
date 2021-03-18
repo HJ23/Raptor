@@ -1,6 +1,6 @@
 from .Base import BaseClass
 import time
-from utils.Utility import logger
+from utils.Utility import logger,Log
 
 class FacebookCert(BaseClass):
     def __init__(self):
@@ -41,5 +41,5 @@ class FacebookCert(BaseClass):
                 else:
                     break
         except Exception as e:
-            print(e)
+            Log.info(e)
         return BaseClass.clean(results, domain)

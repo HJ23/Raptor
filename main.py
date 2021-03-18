@@ -2,8 +2,8 @@ import sys
 sys.path.append(".")
 import argparse
 from src.Raptor import Raptor
-from utils.Utility import print_banner
-parser=argparse.ArgumentParser(description="R4pt0r advanced subdomain discovery , recon tool")
+from utils.Utility import print_banner,Log
+parser=argparse.ArgumentParser(description="Raptor advanced subdomain discovery,recon tool.")
 
 parser.add_argument("--domain","-d",required=True )
 parser.add_argument("--threads","-t",required=False,default=4,type=int)
@@ -19,5 +19,5 @@ if(__name__=="__main__"):
     obj=Raptor(output=args.output,verbose=args.verbose)
     out=obj.start(domain=args.domain)
     obj.save_out(out)
-    print("Total {} subdomain found".format(len(out)))
+    Log.success("* Total {} subdomains found".format(len(out)))
     

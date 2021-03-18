@@ -1,5 +1,5 @@
 from .Base import BaseClass
-from utils.Utility import logger
+from utils.Utility import logger,Log
 
 
 class CertSpotter(BaseClass):
@@ -19,6 +19,6 @@ class CertSpotter(BaseClass):
                 for resp in json_resp:
                     results+=resp["dns_names"]
         except Exception as e:
-            print(e)
+            Log.info(e)
         return BaseClass.clean(results, domain)
 

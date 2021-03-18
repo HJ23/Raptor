@@ -43,23 +43,33 @@ def timer(func):
     def run(*args,**kwargs):
         start=time.time()
         out=func(*args,**kwargs)
-        cprint(f"* Total elapsed time : {time.time()-start}","green")
+        Log.success(f"* Total elapsed time : {time.time()-start}")
         return out
     return run
 
+class Log:
+    @staticmethod
+    def info(arg):
+        from src.Base import BaseClass
+        if(BaseClass.VERBOSE_MODE):
+            if(isinstance(arg,str)):
+                cprint("# [INFO] "+arg,"blue")
+            else:
+                cprint("# [INFO] "+str(arg),"red")
+        return
+    @staticmethod
+    def success(arg):
+        cprint(arg,"green")
+        return
 
 
 def logger(name):
     def wrapper(func):
         @wraps(func)
         def run(*args,**kwargs):
-            from src.Base import BaseClass
-            if(BaseClass.VERBOSE_MOD):
-                cprint(f"* {name} just started !","yellow")
+            Log.info(f"* {name} just started !")
             out=func(*args,**kwargs)
-            if(BaseClass.VERBOSE_MOD):
-                cprint(f"* {name} just finished !","yellow")
-
+            Log.info(f"* {name} just finished !")
             return out
         return run
     return wrapper

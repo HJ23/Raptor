@@ -1,5 +1,5 @@
 from src.Base import BaseClass
-from utils.Utility import logger
+from utils.Utility import logger,Log
 
 
 class VirusTotal(BaseClass):
@@ -19,6 +19,6 @@ class VirusTotal(BaseClass):
                 json_out=out.json()
                 results+=json_out["subdomains"] if("subdomains" in json_out) else []
         except Exception as e:
-            print(e)
+            Log.info(e)
         return BaseClass.clean(results,domain)
         

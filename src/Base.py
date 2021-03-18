@@ -3,10 +3,11 @@ import os
 from utils.Utility import RequestClass
 
 class BaseClass:
-    VERBOSE_MOD=False
+    VERBOSE_MODE=False
     
     def __init__(self):
         self.requester=RequestClass()
+    
     
     @staticmethod
     def get_credentials():
@@ -19,13 +20,12 @@ class BaseClass:
     def clean(results,domain)->list:
         final=set()
         for url in results:
-            for useless in ["https://","http://",":","\\","www.","*","https:\\\\","http:\\\\"]:
+            for useless in ["https://","http://",":","\\","*","https:\\\\","http:\\\\"]:
                 url=url.replace(useless,"")
             
             splitted=url.split("/")
             if( splitted[0].endswith("."+domain) ):
                 final.add(splitted[0])
-            
 
         return list(final)
 

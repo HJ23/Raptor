@@ -14,7 +14,7 @@ class BufferOverDNS(BaseClass):
         tmp_url=self.URL.format(domain=domain)
         results=[]
         out=self.requester.sendGET(tmp_url)
-        if(not out is None):
+        if(not out is None and out.status_code==200):
             json_resp=out.json()
             
             for result in json_resp[self.SECTION]:

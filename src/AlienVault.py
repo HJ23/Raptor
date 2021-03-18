@@ -1,5 +1,5 @@
 from .Base  import BaseClass
-from utils.Utility import logger
+from utils.Utility import logger,Log
 
 
 class AlienVault(BaseClass):
@@ -21,5 +21,5 @@ class AlienVault(BaseClass):
                 for resp in resps:
                     results.append(resp["hostname"])
         except Exception as e:
-            print(e)
+            Log.info(e)
         return BaseClass.clean(results, domain)

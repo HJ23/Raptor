@@ -1,5 +1,5 @@
 from src.Base import BaseClass
-from utils.Utility import logger
+from utils.Utility import logger,Log
 
 
 class ThreatMiner(BaseClass):
@@ -18,5 +18,5 @@ class ThreatMiner(BaseClass):
                 json_resp=out.json()                   
                 results+=json_resp["results"]
         except Exception as e:
-            print(e)
+            Log.info(e)
         return BaseClass.clean(results,domain)

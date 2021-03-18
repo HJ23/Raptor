@@ -13,6 +13,7 @@ from src.CertSpotter import CertSpotter
 from src.Bing import Bing
 from src.AlienVault import AlienVault
 from src.Google import Google
+from src.Shodan import Shodan
 import os
 from src.Base import BaseClass
 from concurrent.futures import ThreadPoolExecutor
@@ -22,11 +23,11 @@ class Raptor:
     def __init__(self,output,threads=4,verbose=False):
         self.modules=[FacebookCert(),RapiDNS(),BufferOverDNS(),HackerTarget(),NetCraft(),
                       DNSDumpster(),VirusTotal(),BinaryEdge(),ThreatCrowd(),ThreatMiner(),
-                      Sublist3r(),CertSpotter(),Bing(),AlienVault(),Google()]
+                      Sublist3r(),CertSpotter(),Bing(),AlienVault(),Google(),Shodan()]
         
         self.output=output
         self.threads=threads
-        BaseClass.VERBOSE_MOD=verbose
+        BaseClass.VERBOSE_MODE=verbose
         
     def save_out(self,results):
 
@@ -36,7 +37,8 @@ class Raptor:
         final=list(map(lambda x:x+"\n",results))
         with open(out_dir,"w") as file:
             file.writelines(final)
-        return            
+        return 
+               
     @timer
     def start(self,domain):
         final=[]

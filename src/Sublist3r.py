@@ -1,5 +1,5 @@
 from .Base import BaseClass
-from utils.Utility import logger
+from utils.Utility import logger,Log
 
 
 
@@ -20,5 +20,5 @@ class Sublist3r(BaseClass):
                 resp=out.json()                        
                 results+=resp if(not resp is None) else []
         except Exception as e:
-            print(e)
+            Log.info(e)
         return BaseClass.clean(results,domain)
