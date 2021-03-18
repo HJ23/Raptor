@@ -34,19 +34,20 @@ python3 main.py --domain example.com --output example.txt --verbose
 
 ```
 For better results I highly encourage you to get API keys.
-This software currently uses 15 free and commercial services.
+This software currently uses 16 free and commercial services.
 These are the commercial services it uses:
 
 - Bing
 - BinaryEdge
 - VirusTotal
+- Shodan
 
 But all these services also provide free limited request package with automatic renewal basis.
 
 for Bing limit is 1000 request per month.
 for BinaryEdge limit is 250 request per month. 
 for VirusTotal limit is 500 request per day.
-
+for Shodan if you have academic email limit is 100 request per month. (1 request = 100 result)
 
 ```
 #### Having trouble with API keys ?
