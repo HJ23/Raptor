@@ -1,5 +1,5 @@
 from .Base import BaseClass
-from utils.Utility import logger,Log
+from utils.Utility import LOGGER,Log
 
 
 class CertSpotter(BaseClass):
@@ -8,7 +8,7 @@ class CertSpotter(BaseClass):
         
         self.URL="https://api.certspotter.com/v1/issuances?domain={domain}&include_subdomains=true&expand=dns_names"
     
-    @logger("CertSpotter")
+    @LOGGER("CertSpotter")
     def start(self,domain):
         results=[]
         tmp_url=self.URL.format(domain=domain)
@@ -19,6 +19,6 @@ class CertSpotter(BaseClass):
                 for resp in json_resp:
                     results+=resp["dns_names"]
         except Exception as e:
-            Log.info(e)
+            Log.info(e,"CertSpotter")
         return BaseClass.clean(results, domain)
 

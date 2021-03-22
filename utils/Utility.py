@@ -23,23 +23,14 @@ class RequestClass:
 
 
     def sendGET(self,url,cookies=None,params=None):
-        resp=None
-        try:
-            resp=self.SESSION.get(url=url,params=params,headers=self.HEADERS,verify=False,timeout=13,cookies=cookies)
-        except Exception as e:
-            print(e)
-        return resp
+        return self.SESSION.get(url=url,params=params,headers=self.HEADERS,verify=False,timeout=17,cookies=cookies)
+
     
     def sendPOST(self,url,params=None,cookies=None):
-        resp=None
-        try:
-            resp=self.SESSION.post(url,data=params,headers=self.HEADERS,verify=False,timeout=13,cookies=cookies)
-        except Exception as e:
-            print(e)
-        return resp
+        return self.SESSION.post(url,data=params,headers=self.HEADERS,verify=False,timeout=17,cookies=cookies)
+        
 
-
-def timer(func):
+def TIMER(func):
     def run(*args,**kwargs):
         start=time.time()
         out=func(*args,**kwargs)
@@ -49,13 +40,13 @@ def timer(func):
 
 class Log:
     @staticmethod
-    def info(arg):
+    def info(arg,name=""):
         from src.Base import BaseClass
         if(BaseClass.VERBOSE_MODE):
             if(isinstance(arg,str)):
                 cprint("# [INFO] "+arg,"blue")
             else:
-                cprint("# [INFO] "+str(arg),"red")
+                cprint("# [INFO] "+str(arg)+" : "+name,"red")
         return
     @staticmethod
     def success(arg):
@@ -63,13 +54,13 @@ class Log:
         return
 
 
-def logger(name):
+def LOGGER(name):
     def wrapper(func):
         @wraps(func)
         def run(*args,**kwargs):
             Log.info(f"* {name} just started !")
             out=func(*args,**kwargs)
-            Log.info(f"* {name} just finished !")
+            Log.info(f"* {name} just finished ! {len(out)} subdomains found !")
             return out
         return run
     return wrapper

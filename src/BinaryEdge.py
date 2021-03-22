@@ -1,5 +1,5 @@
 from src.Base import BaseClass
-from utils.Utility import logger
+from utils.Utility import LOGGER,Log
 
 class BinaryEdge(BaseClass):
     def __init__(self):
@@ -10,25 +10,28 @@ class BinaryEdge(BaseClass):
 
     
     # for starter plan limit param should be used becuase of the API monthly limit
-    @logger("BinaryEdge")
+    @LOGGER("BinaryEdge")
     def start(self,domain,limit=10):
         results=[]
         tmp_url=self.URL.format(domain=domain)
-        counter=0
-        param={"page":"1"}
+        counter=1
         
-        while(counter<limit):
-            self.requester.HEADERS["X-Key"]=self.API_KEY
-            out=self.requester.sendGET(tmp_url,params=param)
-            
-            if(not out is None and out.status_code==200):
-                json_resp=out.json()
-                counter+=1
-                results+=json_resp["events"]
+        try:
+            while(counter<limit):
+                param={"page":str(counter)}
+                self.requester.HEADERS["X-Key"]=self.API_KEY
+                out=self.requester.sendGET(tmp_url,params=param)
                 
-                if(int(json_resp["total"]//json_resp["pagesize"])+1<limit ):
+                json_resp=out.json()
+                
+                # adjust limit for gathered results
+                if("total" in json_resp.keys() and int(json_resp["total"]//json_resp["pagesize"])+1<limit ):
                     limit=int(json_resp["total"]//json_resp["pagesize"])+1   
-            else:
-                break
+                
+                counter+=1
+                results+=json_resp["events"] if("events" in json_resp.keys()) else []
+                
+        except Exception as e:
+            Log.info(e,"BinaryEdge")
                 
         return BaseClass.clean(results,domain)

@@ -1,6 +1,6 @@
 from src.Base import BaseClass
 import re
-from utils.Utility import logger
+from utils.Utility import LOGGER,Log
 
 
 class DNSDumpster(BaseClass):
@@ -32,15 +32,19 @@ class DNSDumpster(BaseClass):
         token = self.CSRF_REGEX.findall(resp)[0]
         return token.strip()
     
-    @logger("DNSDumpster")
+    @LOGGER("DNSDumpster")
     def start(self,domain):
         results=[]
         self.requester.HEADERS['Referer'] = 'https://dnsdumpster.com'
-        out=self.requester.sendGET(self.URL)
-        if(not out is None):
-            resp=out.text
-            token=self.getToken(resp)
-            params = {'csrfmiddlewaretoken': token, 'targetip': domain}
-            post_resp = self.requester.sendPOST( self.URL, params=params).text
-            results=self.extract(post_resp)
+        try:
+            out=self.requester.sendGET(self.URL)
+            if(not out is None and out.status_code==200):
+                resp=out.text
+                token=self.getToken(resp)
+                params = {'csrfmiddlewaretoken': token, 'targetip': domain}
+                post_resp = self.requester.sendPOST( self.URL, params=params).text
+                results=self.extract(post_resp)
+        except Exception as e:
+            Log.info(e,"DNSDumpster") 
+
         return BaseClass.clean(results,domain)

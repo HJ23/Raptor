@@ -1,6 +1,6 @@
 from .Base import BaseClass
 import time
-from utils.Utility import logger,Log
+from utils.Utility import LOGGER,Log
 
 class FacebookCert(BaseClass):
     def __init__(self):
@@ -23,7 +23,7 @@ class FacebookCert(BaseClass):
         # assert key not found !
         return json_resp["access_token"] if("access_token" in json_resp) else ""
     
-    @logger("FacebookCert")
+    @LOGGER("FacebookCert")
     def start(self,domain):
         results=[]
         tmp_url=self.GETDOMAINS.format(domain=domain,token=self.TOKEN)
@@ -31,15 +31,18 @@ class FacebookCert(BaseClass):
         try:
             while(tmp_url!=""):
                 out=self.requester.sendGET(tmp_url)
-                if(not out is None and out.status_code==200):
-                    json_resp=out.json()
-                    for domain_obj in json_resp["data"]:
-                        results+=domain_obj["domains"]
+                json_resp=out.json()
+                data=json_resp["data"] if("data" in json_resp.keys()) else []
 
-                    time.sleep(2)   
+                for domain_obj in data:
+                    results+=domain_obj["domains"]
+
+                time.sleep(1.8)
+                if("paging" in json_resp.keys()):  
                     tmp_url=json_resp["paging"]["next"] if("next" in json_resp["paging"]) else ""
                 else:
-                    break
+                    tmp_url=""
+
         except Exception as e:
-            Log.info(e)
+            Log.info(e,"FacebookCert")
         return BaseClass.clean(results, domain)

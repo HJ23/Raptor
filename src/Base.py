@@ -24,7 +24,7 @@ class BaseClass:
                 url=url.replace(useless,"")
             
             splitted=url.split("/")
-            if( splitted[0].endswith("."+domain) ):
+            if( splitted[0].endswith("."+domain) and splitted[0][0].isalnum() ):
                 final.add(splitted[0])
 
         return list(final)

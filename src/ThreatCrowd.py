@@ -1,5 +1,5 @@
 from src.Base import BaseClass
-from utils.Utility import logger
+from utils.Utility import LOGGER,Log
 
 
 class ThreatCrowd(BaseClass):
@@ -8,15 +8,15 @@ class ThreatCrowd(BaseClass):
         
         self.URL="https://www.threatcrowd.org/searchApi/v2/domain/report/?domain={domain}"
     
-    @logger("ThreatCrowd")
+    @LOGGER("ThreatCrowd")
     def start(self,domain):
         results=[]
         tmp_url=self.URL.format(domain=domain)
-        out=self.requester.sendGET(tmp_url)
-        
-        if(not out is None):
-            resp=out.json()
-            results=resp["subdomains"]            
-        
+        try:
+            out=self.requester.sendGET(tmp_url)
+            json_resp=out.json()
+            results+=json_resp["subdomains"] if("subdomains" in json_resp.keys()) else []         
+        except Exception as e:
+            Log.info(e,"ThreadCrowd")
         return BaseClass.clean(results,domain)
 

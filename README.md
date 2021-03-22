@@ -34,7 +34,7 @@ python3 main.py --domain example.com --output example.txt --verbose
 
 ```
 For better results I highly encourage you to get API keys.
-This software currently uses 16 free and commercial services.
+This software currently uses 17 free and commercial services.
 These are the commercial services it uses:
 
 - Bing
@@ -54,13 +54,13 @@ for Shodan if you have academic email limit is 100 request per month. (1 request
 Check out our guide here :
 [ How to get API keys for Raptor ? ](https://github.com/HJ23/Raptor/wiki)
 
-
+#### Why this tool works slower than others ?
+Well faster not always mean better. API calls might take reasonable amount of time.
+Also in order not to exceed limits stated above scripts adjusted not only for best performance but also best
+for API call allowance.
 
 ## Todo
 - [ Add more sources ]()
-- [ Add bruteforcer ]()
-- [ Improve verbose mode ]()
-- [  ]()
 
 ----
 #### Logo Credits : https://www.freepik.com/iyasalif

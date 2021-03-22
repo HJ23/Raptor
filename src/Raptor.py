@@ -14,16 +14,17 @@ from src.Bing import Bing
 from src.AlienVault import AlienVault
 from src.Google import Google
 from src.Shodan import Shodan
-import os
 from src.Base import BaseClass
+from src.Crobat import Crobat
 from concurrent.futures import ThreadPoolExecutor
-from utils.Utility import timer 
+from utils.Utility import TIMER 
+import os
 
 class Raptor:
     def __init__(self,output,threads=4,verbose=False):
         self.modules=[FacebookCert(),RapiDNS(),BufferOverDNS(),HackerTarget(),NetCraft(),
                       DNSDumpster(),VirusTotal(),BinaryEdge(),ThreatCrowd(),ThreatMiner(),
-                      Sublist3r(),CertSpotter(),Bing(),AlienVault(),Google(),Shodan()]
+                      Sublist3r(),CertSpotter(),Bing(),AlienVault(),Google(),Shodan(),Crobat()]
         
         self.output=output
         self.threads=threads
@@ -39,7 +40,7 @@ class Raptor:
             file.writelines(final)
         return 
                
-    @timer
+    @TIMER
     def start(self,domain):
         final=[]
         futures=[]

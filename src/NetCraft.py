@@ -1,5 +1,5 @@
 from src.Base import BaseClass
-from utils.Utility import logger
+from utils.Utility import LOGGER,Log
 import re
 from urllib.parse import urlparse
 import hashlib
@@ -39,29 +39,28 @@ class NetCraft(BaseClass):
             cookies = {}
         return cookies
     
-    @logger("NetCraft") 
+    @LOGGER("NetCraft") 
     def start(self,domain):
         results=[]
         tmp_url=self.URL.format(domain=domain)
-        out=self.requester.sendGET(tmp_url)
-        if(out is None):
-            return results
-        cook=self.get_cookies(out.headers)
-        while(True):
-            tmp_url=self.URL.format(domain=domain)
 
-            out=self.requester.sendGET(tmp_url,cookies=cook)
+        try:
+            out=self.requester.sendGET(tmp_url)
             
-            if(out is None):
-                break
-            
-            resp=out.text
-            
-            results+=self.extract(resp)
-            
-            if(not "Next Page" in resp):
-                break            
-            domain=self.REGEX_NEXTPAGE.findall(resp)[0]
-            
-            time.sleep(2) 
+            cook=self.get_cookies(out.headers)
+            while(True):
+                tmp_url=self.URL.format(domain=domain)
+
+                out=self.requester.sendGET(tmp_url,cookies=cook)
+                if(not out is None and out.status_code==200):
+                    resp=out.text
+                    results+=self.extract(resp)           
+                    domain=self.REGEX_NEXTPAGE.findall(resp)[0]
+                    if(not "Next Page" in resp):
+                        break 
+                    time.sleep(2)
+                else:
+                    break
+        except Exception as e:
+            Log.info(e,"NetCraft")
         return BaseClass.clean(results,domain)

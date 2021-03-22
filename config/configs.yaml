@@ -3,8 +3,7 @@
   "Facebook_API_ID": "",
   "Facebook_API_SECRET": "",
   
-  "SHODAN_API_KEY": "",
-  
+  "SHODAN_API_KEY":"",  
   "BING_API_KEY": "",
   
   "VirusTotal_API_KEY": "",
