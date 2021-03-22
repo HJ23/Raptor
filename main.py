@@ -19,5 +19,5 @@ if(__name__=="__main__"):
     obj=Raptor(output=args.output,verbose=args.verbose)
     out=obj.start(domain=args.domain)
     obj.save_out(out)
-    Log.success("* Total {} subdomains found".format(len(out)))
+    Log.success("* Total {} unique subdomains found".format(len(out)))
     
