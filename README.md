@@ -34,7 +34,7 @@ python3 main.py --domain example.com --output example.txt --verbose
 
 ```
 For better results I highly encourage you to get API keys.
-This software currently uses 17 free and commercial services.
+This software currently uses 18 free and commercial services.
 These are the commercial services it uses:
 
 - Bing
