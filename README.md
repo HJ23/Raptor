@@ -13,13 +13,17 @@ pip3 install -r requirements.txt
 
 #### Find subdomains of 'example.com' . 
 ```sh
-python3 main.py --domain example.com  
+python3 main.py --domain example.com
+Or
+python3 main.py -d example.com
 ```
 
 #### Specify filename and extension  or it will use default one.
 
 ```sh
 python3 main.py --domain example.com --output example.txt  
+Or
+python3 main.py -d example.com -o example.txt  
 ```
 #### For Outputs check outputs directory.
 
@@ -28,6 +32,8 @@ python3 main.py --domain example.com --output example.txt
 
 ```sh
 python3 main.py --domain example.com --output example.txt --verbose
+Or
+python3 main.py -d example.com -o example.txt -v
 ```
 
 #### API keys for commercial services.
