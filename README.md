@@ -36,6 +36,18 @@ Or
 python3 main.py -d example.com -o example.txt -v
 ```
 
+### Run with Docker
+
+#### Build an image
+```
+docker build -t hj23/raptor .
+```
+
+#### Run in a container
+```
+docker run --rm -v $PWD/outputs:/outputs hj23/raptor -d example.com
+```
+
 #### API keys for commercial services.
 
 ```
