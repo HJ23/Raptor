@@ -1,7 +1,10 @@
 {
      
-  "Facebook_API_ID": "",
-  "Facebook_API_SECRET": "",
+  "FACEBOOK_API_ID": "",
+  "FACEBOOK_API_SECRET": "",
+  
+  "CENSYS_API_KEY":"",
+  "CENSYS_SECRET":"",
   
   "URLSCAN_API_KEY":"",
 
@@ -9,8 +12,8 @@
   
   "BING_API_KEY": "",
   
-  "VirusTotal_API_KEY": "",
+  "VIRUSTOTAL_API_KEY": "",
   
-  "BinaryEdge_API_KEY": ""
+  "BINARYEDGE_API_KEY": ""
   
 }

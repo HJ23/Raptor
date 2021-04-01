@@ -26,8 +26,8 @@ class RequestClass:
         return self.SESSION.get(url=url,params=params,headers=self.HEADERS,verify=False,timeout=17,cookies=cookies)
 
     
-    def sendPOST(self,url,params=None,cookies=None):
-        return self.SESSION.post(url,data=params,headers=self.HEADERS,verify=False,timeout=17,cookies=cookies)
+    def sendPOST(self,url,params=None,cookies=None,json=None,auth=None):
+        return self.SESSION.post(url,data=params,json=json,auth=auth,headers=self.HEADERS,verify=False,timeout=17,cookies=cookies)
         
 
 def TIMER(func):

@@ -8,8 +8,8 @@ class FacebookCert(BaseClass):
         
         credentials=self.get_credentials()
         
-        self.APP_SECRET=credentials["Facebook_API_SECRET"]
-        self.APP_ID=credentials["Facebook_API_ID"]
+        self.APP_SECRET=credentials["FACEBOOK_API_SECRET"]
+        self.APP_ID=credentials["FACEBOOK_API_ID"]
         
         self.GETAUTH="https://graph.facebook.com/oauth/access_token?client_id={Id}&client_secret={secret}&grant_type=client_credentials"
         self.GETDOMAINS="https://graph.facebook.com/certificates?fields=domains&access_token={token}&query=*.{domain}"
@@ -37,7 +37,7 @@ class FacebookCert(BaseClass):
                 for domain_obj in data:
                     results+=domain_obj["domains"]
 
-                time.sleep(1.8)
+                time.sleep(1.1)
                 if("paging" in json_resp.keys()):  
                     tmp_url=json_resp["paging"]["next"] if("next" in json_resp["paging"]) else ""
                 else:

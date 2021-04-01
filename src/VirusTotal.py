@@ -6,7 +6,7 @@ class VirusTotal(BaseClass):
     def __init__(self):
         super().__init__()
         
-        self.API_KEY=self.get_credentials()["VirusTotal_API_KEY"]
+        self.API_KEY=self.get_credentials()["VIRUSTOTAL_API_KEY"]
         self.URL="https://www.virustotal.com/vtapi/v2/domain/report?domain={domain}&apikey={key}"
     
     @LOGGER("VirusTotal")

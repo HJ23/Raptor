@@ -6,7 +6,7 @@ class BinaryEdge(BaseClass):
         super().__init__()
         
         self.URL="https://api.binaryedge.io/v2/query/domains/subdomain/{domain}"
-        self.API_KEY=self.get_credentials()["BinaryEdge_API_KEY"]
+        self.API_KEY=self.get_credentials()["BINARYEDGE_API_KEY"]
 
     
     # for starter plan limit param should be used becuase of the API monthly limit
