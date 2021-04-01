@@ -69,6 +69,7 @@ for BinaryEdge limit is 250 requests per month.
 for VirusTotal limit is 500 requests per day.
 for Shodan if you have academic email limit is 100 requests per month. (1 request = 100 result)
 for UrlScan limit is 1000 requests per day.
+for Censys limit is 250 requests per month.
 
 ```
 #### Having trouble with API keys ?
