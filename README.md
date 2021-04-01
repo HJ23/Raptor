@@ -52,7 +52,7 @@ docker run --rm -v $PWD/outputs:/outputs hj23/raptor -d example.com
 
 ```
 For better results I highly encourage you to get API keys.
-This software currently employs 19 free and commercial services.
+This software currently employs 20 free and commercial services.
 These are the commercial services it uses:
 
 - Bing
@@ -60,6 +60,7 @@ These are the commercial services it uses:
 - VirusTotal
 - Shodan
 - UrlScan
+- Censys
 
 But all these services  provide free limited request package with automatic renewal basis.
 
