@@ -19,7 +19,7 @@ from src.Crobat import Crobat
 from src.SiteDossier import SiteDossier
 from src.UrlScan import UrlScan
 from src.Censys import Censys
-
+from src.CertDetails import CertDetails
 
 from concurrent.futures import ThreadPoolExecutor
 from utils.Utility import TIMER 
@@ -29,7 +29,7 @@ class Raptor:
     def __init__(self,output,threads=4,verbose=False):
         self.modules=[FacebookCert(),RapiDNS(),BufferOverDNS(),HackerTarget(),NetCraft(),
                       DNSDumpster(),VirusTotal(),BinaryEdge(),ThreatCrowd(),ThreatMiner(),
-                      UrlScan(),Censys(),Sublist3r(),CertSpotter(),Bing(),SiteDossier(),AlienVault(),Google(),Shodan(),Crobat()]
+                      UrlScan(),CertDetails(),Censys(),Sublist3r(),CertSpotter(),Bing(),SiteDossier(),AlienVault(),Google(),Shodan(),Crobat()]
         
         self.output=output
         self.threads=threads
