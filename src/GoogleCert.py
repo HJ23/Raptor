@@ -37,8 +37,6 @@ class GoogleCert(BaseClass):
                 time.sleep(1.3)
                 
         except Exception as e:
-            print(e)
             Log.info(e,"GoogleCert")
         
-        print(results)
         return BaseClass.clean(results,domain)
