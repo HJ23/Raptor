@@ -27,7 +27,7 @@ Or
 python3 main.py -d example.com
 ```
 
-#### Specify filename and extension  or it will use default one.
+#### Specify filename and extension  otherwise it will use default one.
 
 ```sh
 python3 main.py --domain example.com --output example.txt  
@@ -79,11 +79,11 @@ for UrlScan limit is 1000 requests per day.
 for Censys limit is 250 requests per month.
 
 ```
-#### Having trouble with API keys ?
+### Having trouble with API keys ?
 Check out our guide here :
 [ How to get API keys for Raptor ? ](https://github.com/HJ23/Raptor/wiki)
 
-#### Why this tool works slower than others ?
+### Why this tool works slower than others ?
 Well faster not always means better. API calls might take reasonable amount of time.
 But most importantly in order not to exceed limits stated above scripts adjusted not only for best performance but also best
 for API call allowance.
