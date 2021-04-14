@@ -3,8 +3,17 @@
 ![raptor](https://user-images.githubusercontent.com/39130214/110909816-fc04c180-8329-11eb-9344-d06f25458f61.png)
 
 ---
+Raptor is a subdomain enumeration tool that discovers valid subdomains for websites passively. 
 
-# Usage
+Raptor designed to comply with all passive sources licenses, and usage restrictions but speed in mind.
+
+This software currently employs 22 free and commercial services. (Constantly updated if any new resource out there.)
+
+For better results I highly encourage you to get API keys.
+
+
+
+### Usage
 #### To install requirements execute the command below
 
 ```sh
@@ -51,8 +60,6 @@ docker run --rm -v $PWD/outputs:/outputs hj23/raptor -d example.com
 #### API keys for commercial services.
 
 ```
-For better results I highly encourage you to get API keys.
-This software currently employs 22 free and commercial services.
 These are the commercial services it uses:
 
 - Bing
