@@ -18,7 +18,7 @@ class RapiDNS(BaseClass):
             out=self.requester.sendGET(tmp_url)
             if(not out is None and out.status_code==200):
                 urls=self.REGEX_URL.findall(out.text)
-                results=urls
+                results+=urls
         except Exception as e:
             Log.info(e,"RapiDNS")
         
