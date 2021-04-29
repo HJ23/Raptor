@@ -21,17 +21,19 @@ from src.UrlScan import UrlScan
 from src.Censys import Censys
 from src.CertDetails import CertDetails
 from src.GoogleCert import GoogleCert
+from src.HttProbe import HttProbe
+
 
 from concurrent.futures import ThreadPoolExecutor
 from utils.Utility import TIMER 
 import os
 
 class Raptor:
-    def __init__(self,output,threads=4,verbose=False):
+    def __init__(self,output,threads=10,verbose=False,probe=False):
         self.modules=[FacebookCert(),RapiDNS(),BufferOverDNS(),HackerTarget(),NetCraft(),
                       DNSDumpster(),VirusTotal(),BinaryEdge(),ThreatCrowd(),ThreatMiner(),GoogleCert(),
                       UrlScan(),CertDetails(),Censys(),Sublist3r(),CertSpotter(),Bing(),SiteDossier(),AlienVault(),Google(),Shodan(),Crobat()]
-        
+        self.probe=probe
         self.output=output
         self.threads=threads
         BaseClass.VERBOSE_MODE=verbose
@@ -48,7 +50,7 @@ class Raptor:
                
     @TIMER
     def start(self,domain):
-        final=[]
+        final=[domain]
         futures=[]
         with ThreadPoolExecutor(self.threads) as thread:
             for module in self.modules:
@@ -57,5 +59,10 @@ class Raptor:
         for future in futures:
             final+=future.result()        
 
-        return list(set(final))
+        final=list(set(final))
+        if(self.probe):
+            probe_obj=HttProbe(self.threads)
+            final=probe_obj.start(final)
+
+        return final
         

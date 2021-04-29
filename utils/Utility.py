@@ -22,12 +22,12 @@ class RequestClass:
         return cookies
 
 
-    def sendGET(self,url,cookies=None,params=None):
-        return self.SESSION.get(url=url,params=params,headers=self.HEADERS,verify=False,timeout=17,cookies=cookies)
+    def sendGET(self,url,cookies=None,params=None,timeout=17):
+        return self.SESSION.get(url=url,params=params,headers=self.HEADERS,verify=False,timeout=timeout,cookies=cookies)
 
     
-    def sendPOST(self,url,params=None,cookies=None,json=None,auth=None):
-        return self.SESSION.post(url,data=params,json=json,auth=auth,headers=self.HEADERS,verify=False,timeout=17,cookies=cookies)
+    def sendPOST(self,url,params=None,cookies=None,json=None,auth=None,timeout=17):
+        return self.SESSION.post(url,data=params,json=json,auth=auth,headers=self.HEADERS,verify=False,timeout=timeout,cookies=cookies)
         
 
 def TIMER(func):
