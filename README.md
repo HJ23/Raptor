@@ -38,7 +38,7 @@ python3 main.py -d example.com -o example.txt
 ```
 #### For Outputs check outputs directory.
 
-#### Use http-probe to identify dead & alive subdomains and various ports.
+#### Use http-probe to identify dead & alive subdomains and various ports. (*This option will take for a while to finish)
 ```sh
 python3 main.py --domain example.com --probe   
 Or
