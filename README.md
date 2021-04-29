@@ -11,6 +11,8 @@ This software currently employs 22 free and commercial services. (Constantly upd
 
 For better results I highly encourage you to get API keys.
 
+Also http-probe included which means user can identify dead&alive subdomains and various open-ports easily.
+
 
 
 ### Usage
