@@ -13,6 +13,7 @@ For better results I highly encourage you to get API keys.
 
 Also http-probe included which means user can identify dead&alive subdomains and various open-ports easily.
 
+Think this is useful? :star: Star us on GitHub — it helps!
 
 
 ### Usage
